@@ -29,7 +29,7 @@ class RecursiveClass{
     }
 
     /*
-     * @parms      startFrom :       The number from which the Fibonacci series will start.
+     * @parms      startFrom :       The number from which the Factorial will start.
      * example:    startFrom = 5     Result will be 5 x 3 x 2 x 1 = 120
      */
     public void print_factorial(int startFrom){
