@@ -1,49 +1,56 @@
-public class SimpleStack {
+public class MyStack {
 
     private int[] stack;
     private int stackSize = -1;
-    private int currentPosition = 0;
+    private int currentPosition = -1;
+    private int nextEmptySlot = 0;
 
-    SimpleStack(int size)
+    MyStack(int size)
     {
         this.stackSize = size;
         this.stack = new int[this.stackSize];
         System.out.println("Stack of size "+ this.stackSize +" created successfully");
         System.out.println("Functions available: getSpace(), push(int), pop(), currentPosition() ");
+        System.out.println("------------------------------------------------------------------");
     }
 
     public void push(int valueToInsert)
     {
-        if( (this.currentPosition + 1) > this.stackSize)
+        if( (this.currentPosition + 1) == this.stackSize)
         {
             System.out.println("Stack is already full. INSERT failed.");
         }else
         {
-            this.stack[currentPosition] = valueToInsert;
-            System.out.println("Value " + valueToInsert + " inserted at index stack["+currentPosition+"] successfully.");
-            currentPosition++;
+            this.stack[currentPosition+1] = valueToInsert;
+            System.out.println("Value " + valueToInsert + " inserted at index stack["+(currentPosition+1)+"] successfully.");
+            this.currentPosition++;
+            this.nextEmptySlot++;
             this.getSpace();
         }
     }
 
     public void pop()
     {
-        if( (this.currentPosition - 1) < 0)
+        if( (this.nextEmptySlot - 1) < 0)
         {
             System.out.println("Stack is already empty. Can not POP");
         }else
         {
-            this.stack[this.currentPosition] = 0;
+            this.stack[this.nextEmptySlot-1] = 0;
             System.out.println("Value has been removed from Stack");
-            this.getSpace();
             this.currentPosition--;
-            this.stackSize++;
+            this.nextEmptySlot--;
+            this.getSpace();
         }
     }
 
     public void currentPosition()
     {
-        System.out.println("Current position is: " + this.currentPosition );
+        System.out.println("Current position is: " + (this.currentPosition+1) );
+    }
+
+    public void nextEmptySlot(){
+        System.out.println("Next empty slot at: stack["+this.nextEmptySlot+"]");
     }
 
     public void displayStack()
@@ -53,12 +60,18 @@ public class SimpleStack {
             System.out.println("Stack is empty");
         }else
         {
+            System.out.println("--------------------------------------------");
             for(int i=0; i < this.stackSize; i++)
             {
-                System.out.print((i+1) + " -> ");
-                System.out.print(this.stack[i]);
-                System.out.println();
+                System.out.print("|"+ i +"|");
             }
+            System.out.println(" <-- Index");
+            for(int z=0; z < this.stackSize; z++)
+            {
+                System.out.print("|"+this.stack[z]+"|");
+            }
+            System.out.print(" <-- Values");
+            System.out.print("\n--------------------------------------------");
         }
 
     }
@@ -71,7 +84,7 @@ public class SimpleStack {
             System.out.println("Stack not initiated..");
         }else
         {
-            size = this.stackSize - this.currentPosition;
+            size = this.stackSize - (this.currentPosition + 1);
             System.out.println("Space is: " + size);
         }
     }
