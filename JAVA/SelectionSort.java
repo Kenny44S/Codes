@@ -2,7 +2,7 @@ public class SelectionSort {
 
     private int[] arrayToSort;
     private int sizeOfArray;
-    private int currentSortedIndex = 0;
+    private int nextIndexToSort = 0;
 
     /*
      * @params integer sizeOfInteger : size of array to sor
@@ -49,20 +49,20 @@ public class SelectionSort {
 
     public void startSort()
     {
-        this.sort(this.currentSortedIndex);
+        this.sort(this.nextIndexToSort);
     }
 
-    private void sort(int currentSortedIndex)
+    private void sort(int nextIndexToSort)
     {
-        this.currentSortedIndex = currentSortedIndex;
-        int minimum = this.arrayToSort[this.currentSortedIndex];
+        this.nextIndexToSort = nextIndexToSort;
+        int minimum = this.arrayToSort[this.nextIndexToSort];
         int temp;
 
-        if( (this.currentSortedIndex+1) == this.sizeOfArray) {
+        if( (this.nextIndexToSort+1) == this.sizeOfArray) {
             System.out.println("Your array has been sorted successfully.");
         }else
         {
-            for(int i = this.currentSortedIndex; i < this.sizeOfArray; i++ )
+            for(int i = this.nextIndexToSort + 1; i < this.sizeOfArray; i++ )
             {
                 if(this.arrayToSort[i] < minimum)
                 {
@@ -71,10 +71,10 @@ public class SelectionSort {
                     this.arrayToSort[i] = temp;
                 }
             }
-            this.arrayToSort[this.currentSortedIndex] = minimum;
-            currentSortedIndex++;
+            this.arrayToSort[this.nextIndexToSort] = minimum;
+            nextIndexToSort++;
             this.displayArray();
-            this.sort(currentSortedIndex);
+            this.sort(nextIndexToSort);
         }
     }
 }
