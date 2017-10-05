@@ -1,4 +1,4 @@
-public class LongestPalindromic {
+public class LongestPalindromicSubString {
 
     public static void main(String[] args)
     {
