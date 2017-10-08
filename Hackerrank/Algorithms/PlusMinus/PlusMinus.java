@@ -4,9 +4,9 @@ public class PlusMinus {
 
     public static double[] fractionOf(int[] array, int size)
     {
-        int zerosCount = 0;
-        int positiveNumCount = 0;
-        int negativeNumCount = 0;
+        double zerosCount = 0;
+        double positiveNumCount = 0;
+        double negativeNumCount = 0;
 
         for(int num: array)
         {
@@ -20,7 +20,7 @@ public class PlusMinus {
 
     public static void main(String[] args)
     {
-        int[] array = {1, -3, 6, -1, 0, 7, 0, -4, 10, -12};
+        int[] array = {1, -3, 6, -1, 0, 7, 0, -4, 10, -12, 13, 0, 4};
 
         System.out.println(Arrays.toString(fractionOf(array, array.length)));
     }

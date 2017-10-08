@@ -4,13 +4,21 @@ public class MinMaxSum {
 
     public static void main(String[] args)
     {
+        int[] array = {1, 2, 3, 4, 5};
+
+        long[] result = calculateHighLow(array);
+
+        System.out.println("Lowest Sum of 4 number is: " + result[0]);
+        System.out.println("Highest Sum of 4 number is: " + result[1]);
+
+    }
+
+    public static long[] calculateHighLow(int[] array)
+    {
         int lowestNum = 0;
         int highestNum = 0;
 
-        long lowestSum = 0;
         long highestSum =0;
-
-        int[] array = {1, 2, 3, 4, 5};
 
         highestNum = array[0];
         lowestNum = array[0];
@@ -26,10 +34,8 @@ public class MinMaxSum {
                 lowestNum = array[i];
             }
             highestSum += array[i];
-            lowestSum += array[i];
         }
-        System.out.println("Lowest Sum of 4 number is: " + (highestSum - highestNum));
-        System.out.println("Highest Sum of 4 number is: " + (highestSum - lowestNum));
+        return new long[] { (highestSum - highestNum), (highestSum - lowestNum)};
     }
 }
 

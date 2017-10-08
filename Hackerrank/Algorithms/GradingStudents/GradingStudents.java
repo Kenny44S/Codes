@@ -2,9 +2,9 @@ public class GradingStudents {
 
     static final int passingGrade = 40;
 
-    public static int isCloseToMultipleOfFive(int num)
-    {
-        int balance =  num%5;
+    public static int isCloseToMultipleOfFive(int num)            // if num is close to multiple of 5
+    {                                                             // and greater then 37 then return the balance
+        int balance =  num % 5;                                   // needed to ADD to marks, else return 0/false.
         return ( (num > 37) && (balance > 2)) ? (5 - balance) : 0;
     }
 

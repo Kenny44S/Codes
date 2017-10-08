@@ -34,10 +34,8 @@ public class DiagonalDifference {
         }
     }
 
-    public static void main(String[] args) {
-
-        final int arraySize = 4;                       // Size of array  N x N,   here N = 4;
-
+    public static int[][] fillMatrix(int arraySize)
+    {
         int[][] matrix = new int[arraySize][arraySize];
         for(int i=0; i < arraySize; i++)               // Fill array with random numbers
         {
@@ -46,6 +44,14 @@ public class DiagonalDifference {
                 matrix[i][z] = i + (int)(Math.random()*100);
             }
         }
+        return matrix;
+    }
+
+    public static void main(String[] args) {
+
+        final int arraySize = 4;                       // Size of array  N x N,   here N = 4;
+        int[][] matrix;
+        matrix = fillMatrix(arraySize);
         System.out.println("Positive Difference between the diagonals is: " + solveDiagonalDifference(matrix));
     }
 }
