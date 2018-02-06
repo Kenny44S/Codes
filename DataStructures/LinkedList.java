@@ -1,45 +1,124 @@
-class LinkedList {
-
+public class LinkedList{
+    
     Node head;
-
-    static class Node
+    
+    public void getAvailableFunctions()
     {
+        System.out.println("Functions available are: insertAtStart(int), insertAfter(node, int), insertAtLast(int) ");
+    }
+    
+    public static class Node{
+        
+        int data;
         Node next;
-        int value;
-
-        Node(int val)
-        {
-            this.value= val;
+        
+        Node(int data){
+            this.data = data;
             this.next = null;
         }
     }
-
-    public void printLinkedList()
+    
+    public void insertAtStart(int data)
     {
-        Node init = this.head;
-        while(init != null)
+        if( this.head == null)
         {
-            System.out.print(init.value);
-            init = init.next;
-            if(init != null)
-            System.out.print(" -> ");
+            this.head = new Node(data);
+            return;
         }
+        
+        Node newHead = new Node(data);
+        
+        newHead.next = this.head;
+        this.head = newHead;
+        return;
     }
-
-    public static void main(String[] args) {
+    
+    public void insertAfter(Node previousNode, int data)
+    {
+        if( previousNode.next == null )
+        {
+            previousNode.next = new Node(data);
+            return;
+        }
+        
+        Node newNode = new Node(data);
+        
+        newNode.next = previousNode.next;
+        previousNode.next = newNode;
+        return;
+    }
+    
+    public void insertAtLast(int data)
+    {
+        if( this.head == null )
+        {
+            this.head = new Node(data);
+            return;
+        }
+        
+        Node n = this.head;
+        while( n.next != null )
+        {
+            n = n.next;
+        }
+        n.next = new Node(data);
+        return;
+    }
+    
+    public void printList()
+    {
+        Node n = this.head;
+        while( n != null)
+        {
+            System.out.print(n.data);
+            n = n.next;
+            if( n != null) System.out.print(" -> ");
+        }
+        System.out.println();
+    }
+    
+    public int getSize()
+    {   
+        int count = 1;
+        
+        if( this.head == null )
+        return 0;
+        
+        Node n = this.head;
+        while( n.next != null )
+        {
+            count++;
+            n = n.next;
+        }
+        return count;
+    }
+    
+    
+    public static void main(String[] args){
+        
         LinkedList list = new LinkedList();
-
-        list.head = new Node(2);
-        Node second = new Node(4);
-        Node third = new Node(8);
-        Node fourth = new Node(24);
-        Node fifth = new Node(44);
-
+        
+        list.getAvailableFunctions();
+        
+        list.head = new Node(1);
+        Node second = new Node(2);
+        Node third = new Node(3);
+        Node fourth = new Node(4);
+        Node fifth = new Node(5);
+        
         list.head.next = second;
-        second.next = fifth;
-        fifth.next = third;
+        second.next = third;
         third.next = fourth;
-
-        list.printLinkedList();
+        fourth.next = fifth;
+        
+        list.printList();
+        list.insertAtStart(100);
+        list.printList();
+        list.insertAfter(second, 200);
+        list.printList();
+        list.insertAtLast(400);
+        list.printList();
+        
+        System.out.print("Size of LinkedList is: " + list.getSize());
     }
 }

@@ -1,11 +1,11 @@
-public class MyStack {
+public class Stack {
 
     private int[] stack;
     private int stackSize = -1;
     private int currentPosition = -1;
     private int nextEmptySlot = 0;
 
-    MyStack(int size)
+    Stack(int size)
     {
         this.stackSize = size;
         this.stack = new int[this.stackSize];
@@ -85,7 +85,27 @@ public class MyStack {
         }else
         {
             size = this.stackSize - (this.currentPosition + 1);
-            System.out.println("Space is: " + size);
+            System.out.println("Available space is: " + size);
         }
+    }
+    
+    public static void main(String[] args){
+        Stack stack = new Stack(14);
+        stack.push(10);
+        stack.push(2);
+        stack.push(22);
+        stack.push(24);
+        stack.push(40);
+        stack.push(42);
+        stack.push(84);
+        stack.push(100);
+        stack.push(48);
+        stack.push(82);
+        stack.push(100);
+        stack.push(48);
+        stack.push(82);
+        stack.push(100);
+        stack.push(1);
+
     }
 }
