@@ -122,3 +122,4 @@ public class LinkedList{
         System.out.print("Size of LinkedList is: " + list.getSize());
     }
 }
+
