@@ -13,7 +13,7 @@ public class BinarySearch {
         }
     }
 
-    public void startSort(int[] array, int value)
+    public void startSearch(int[] array, int value)
     {
         this.array = array;
         this.sort(left, (array.length - 1), value, this.array);
@@ -29,7 +29,13 @@ public class BinarySearch {
         System.out.println();
         System.out.println("LeftIndex: " + left + ", RightIndex: " + right + ", MiddleIndex: " + middle + ", Search Value: " + search);
         System.out.println("-----------------------------------------------------------------------------------------");
-
+        
+        if(leftIndex == rightIndex)
+        {
+            System.out.println("Value not found..");
+            return;
+        }
+        
         if(array[middle] == search)
         {
             System.out.println("Value found at index: " + middle);
@@ -45,4 +51,12 @@ public class BinarySearch {
             sort(left, right, search, array);
         }
     }
+    
+    public static void main(String[] args)
+    {
+        int[] array = {1,2,3,4,5,40,50,54,60,62,70,72,82,100,120,144,148,150,172,186,190,191,200};
+        BinarySearch bs = new BinarySearch();
+        bs.startSearch(array, 101);
+    }
 }
+
