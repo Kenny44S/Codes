@@ -69,14 +69,25 @@ public class BinarySearchTree
     {
         BinarySearchTree btree = new BinarySearchTree();
         
-        btree.insertValue(60);
-        btree.insertValue(40);
-        btree.insertValue(48);
-        btree.insertValue(44);
-        btree.insertValue(50);
-        btree.insertValue(70);
         btree.insertValue(440);
-        btree.insertValue(74);
-        btree.searchValue(44);
+        
+        // 
+        btree.insertValue(240);
+        btree.insertValue(238);
+        btree.insertValue(242);
+        
+        // 
+        btree.insertValue(580);
+        btree.insertValue(578);
+        btree.insertValue(582);
+        
+        // 
+        btree.insertValue(624);
+        btree.insertValue(620);
+        btree.insertValue(628);
+        
+        btree.insertValue(626);
+        
+        btree.searchValue(626);
     }
 }
