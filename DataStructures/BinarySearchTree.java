@@ -16,7 +16,7 @@ public class BinarySearchTree
     
     public void insertValue(int value)
     {
-        root = this.insert(this.root, value);
+        root = insert(root, value);
     }
     
     public Node insert(Node root, int value)
@@ -40,9 +40,13 @@ public class BinarySearchTree
     
     public void searchValue(int value)
     {
-         System.out.println("Root..");
-         Node n = search(this.root, value);
-         if( n == null) System.out.println("NOT FOUND.");
+         System.out.println("At Root");
+         
+         Node n = search(root, value);
+         
+         if( n == null) 
+             System.out.println("NOT FOUND.");
+         
          else System.out.println("FOUND.");
     }
     
@@ -55,39 +59,54 @@ public class BinarySearchTree
         
         if( value < root.data )
         {
-            System.out.println("Left Child..");
+            System.out.println("Left Child");
             return search(root.leftChild, value);
         }else if(value > root.data )
         {
-            System.out.println("Right Child..");
+            System.out.println("Right Child");
             return search(root.rightChild, value);
         }
+        
         return root;
+    }
+    
+    public void inorderTraversal()
+    {
+        traverse(root);
+    }
+    
+    public void traverse(Node root)
+    {
+        if(root == null)  return;
+        
+        traverse(root.leftChild);                     
+        System.out.println(root.data);          // We can shift this line UP or DOWN to get Preorder & Postorder traversal respectively.
+        traverse(root.rightChild);
     }
     
     public static void main(String[] args)
     {
-        BinarySearchTree btree = new BinarySearchTree();
+        BinarySearchTree bstree = new BinarySearchTree();
         
-        btree.insertValue(440);
+        bstree.insertValue(440);   
         
-        // 
-        btree.insertValue(240);
-        btree.insertValue(238);
-        btree.insertValue(242);
+        bstree.insertValue(240);
+        bstree.insertValue(238);
+        bstree.insertValue(242);                   
         
-        // 
-        btree.insertValue(580);
-        btree.insertValue(578);
-        btree.insertValue(582);
+        bstree.insertValue(580);
+        bstree.insertValue(578);
+        bstree.insertValue(582);
         
-        // 
-        btree.insertValue(624);
-        btree.insertValue(620);
-        btree.insertValue(628);
+        bstree.insertValue(624);
+        bstree.insertValue(620);
+        bstree.insertValue(628);
+        // ---- 
+
+        bstree.insertValue(626);
         
-        btree.insertValue(626);
+        bstree.inorderTraversal();
         
-        btree.searchValue(626);
+        bstree.searchValue(624);
     }
 }

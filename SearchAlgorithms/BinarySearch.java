@@ -16,18 +16,18 @@ public class BinarySearch {
     public void startSearch(int[] array, int value)
     {
         this.array = array;
-        this.sort(left, (array.length - 1), value, this.array);
+        this.search(left, (array.length - 1), value, this.array);
     }
 
-    private void sort(int leftIndex, int rightIndex, int search, int[] array)
+    private void search(int leftIndex, int rightIndex, int target, int[] array)
     {
         left = leftIndex;
         right = rightIndex;
-        middle = (this.left + this.right) / 2;
+        middle = (left + right) / 2;
 
         displayArray(left, right, array);
         System.out.println();
-        System.out.println("LeftIndex: " + left + ", RightIndex: " + right + ", MiddleIndex: " + middle + ", Search Value: " + search);
+        System.out.println("LeftIndex: " + left + ", RightIndex: " + right + ", MiddleIndex: " + middle + ", Search Value: " + target);
         System.out.println("-----------------------------------------------------------------------------------------");
         
         if(leftIndex == rightIndex)
@@ -36,19 +36,19 @@ public class BinarySearch {
             return;
         }
         
-        if(array[middle] == search)
+        if(array[middle] == target)
         {
             System.out.println("Value found at index: " + middle);
         }
-        else if(array[middle] > search)
+        else if(array[middle] > target)
         {
             right = middle;
-            sort(left, right, search, array);
+            search(left, right, target, array);
 
-        }else if(array[middle] < search)
+        }else if(array[middle] < target)
         {
             left = middle + 1;
-            sort(left, right, search, array);
+            search(left, right, target, array);
         }
     }
     

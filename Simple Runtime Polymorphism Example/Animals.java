@@ -4,6 +4,8 @@ public class Animal
     private String animalType;
     private int age;
     
+    private Hunter hunterType;
+    
     public Animal(String name, String animalType, int age)
     {
         this.name = name;
@@ -18,20 +20,21 @@ public class Animal
     
     public void printInfo()
     {
-        System.out.println("Name: " + this.name);
-        System.out.println("Age: " + this.age);
-        System.out.println("Animal Type: " + this.animalType);
-        this.printCapability(this.getHuntingCapability());
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Animal Type: " + animalType);
+        getHuntingCapability();
+        printHuntingCapability(hunterType);
         System.out.println("----------------------");
     }
     
-    public Hunter getHuntingCapability()
+    public void getHuntingCapability()
     {
-        if(this.age < 2)  return new CantHunt();
-        else return new CanHunt();
+        if(age < 2)  hunterType = new CantHunt();
+        else hunterType = new CanHunt();
     }
     
-    public void printCapability(Hunter hunter)
+    public void printHuntingCapability(Hunter hunter)
     {
         hunter.hunt();
     }
@@ -40,7 +43,7 @@ public class Animal
     {
         Animal tiger = new Animal("Angoora", "Tiger", 1);
         tiger.printInfo();
-        tiger.setAge((int) 2);
+        tiger.setAge(2);
         tiger.printInfo();
     }
 }

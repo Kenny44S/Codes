@@ -9,72 +9,76 @@ public class SelectionSort {
      * @params integer maxRange      : Random numbers from 0 - maxRange will be inserted into array.
      *
      */
-
+     
+    SelectionSort()
+    {
+        
+    }
+    
     SelectionSort(int sizeOfArray, int maxRange)
     {
-        this.arrayToSort = new int[sizeOfArray];
+        arrayToSort = new int[sizeOfArray];
         this.sizeOfArray = sizeOfArray;
-        this.fillArray(maxRange);
+        fillArray(maxRange);
     }
 
     public void fillArray(int limit)
     {
         int i;
-        for(i=0; i < this.sizeOfArray; i++)
+        for(i=0; i < sizeOfArray; i++)
         {
-            this.arrayToSort[i] = this.generateRandomNumber(limit);
+            arrayToSort[i] = (int) (Math.random() * limit);
         }
         System.out.println("Array created & filled with random numbers successfully.");
         System.out.println("Original array: ");
-        this.displayArray();
-
+        displayArray();
     }
 
-    void displayArray()
+    public void displayArray()
     {
         int i;
-        for(i=0; i < this.sizeOfArray; i++)
+        for(i=0; i < sizeOfArray; i++)
         {
-            System.out.print(" | " + this.arrayToSort[i]);
+            System.out.print(" | " + arrayToSort[i]);
         }
         System.out.println("\n-------------------------------------------------------------------------");
     }
 
-    public int generateRandomNumber(int endRange)
-    {
-        int randomNumber = 0;
-        randomNumber = (int) (Math.random() * endRange);
-        return randomNumber;
-    }
-
     public void startSort()
     {
-        this.sort(this.nextIndexToSort);
+        System.out.println("Starting Sort..");
+        sort(nextIndexToSort);
     }
 
     private void sort(int nextIndexToSort)
     {
         this.nextIndexToSort = nextIndexToSort;
-        int minimum = this.arrayToSort[this.nextIndexToSort];
+        int minimum = arrayToSort[this.nextIndexToSort];
         int temp;
 
-        if( (this.nextIndexToSort+1) == this.sizeOfArray) {
+        if( (this.nextIndexToSort+1) == sizeOfArray) {
             System.out.println("Your array has been sorted successfully.");
         }else
         {
-            for(int i = this.nextIndexToSort + 1; i < this.sizeOfArray; i++ )
+            for(int i = this.nextIndexToSort + 1; i < sizeOfArray; i++ )
             {
-                if(this.arrayToSort[i] < minimum)
+                if(arrayToSort[i] < minimum)
                 {
                     temp = minimum;
-                    minimum = this.arrayToSort[i];
-                    this.arrayToSort[i] = temp;
+                    minimum = arrayToSort[i];
+                    arrayToSort[i] = temp;
                 }
             }
-            this.arrayToSort[this.nextIndexToSort] = minimum;
+            arrayToSort[this.nextIndexToSort] = minimum;
             nextIndexToSort++;
-            this.displayArray();
-            this.sort(nextIndexToSort);
+            displayArray();
+            sort(nextIndexToSort);
         }
+    }
+    
+    public static void main(String[] args)
+    {
+        SelectionSort st = new SelectionSort(10, 100);
+        st.startSort();
     }
 }
