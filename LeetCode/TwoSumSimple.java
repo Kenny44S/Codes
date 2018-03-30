@@ -1,4 +1,4 @@
-public class MyClass {
+public class TwoSumSimple {
     
     public static int[] search(int array[], int target)
     {
@@ -21,14 +21,5 @@ public class MyClass {
             }
         }
         return new int[] { 0, 0 };
-    }
-    
-    
-    public static void main(String args[]) {
-        
-        int array[]  =  { 1, 4, 6, 3, 20, 14, 44, 24, 30, 80, 60, 20 };
-        
-        int result[] = search(array, 66);
-        System.out.println(result[0] + " - " + result[1]);
     }
 }
