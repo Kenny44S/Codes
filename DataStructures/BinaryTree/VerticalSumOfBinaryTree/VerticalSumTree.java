@@ -96,7 +96,7 @@ In this Example we have used Binary Search Tree. Any Binary Tree can be used.
 We keep note of the horizontal distance starting from root (0). Each left node we visit we keep subtractracting -1 & for 
 each right node we visit we keep  adding +1.
 
-By this every Node coming below Node A will have horizontal distance of 0, each node comming under Node B will have 
+By this every Node coming under Node A will have horizontal distance of 0, each node comming under Node B will have 
 horizontal distance -1 and so on...
 
 Then, by using HashMap we can store addition of previous value at given horizontal distance and keep updating it until we 

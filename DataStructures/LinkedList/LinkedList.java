@@ -42,11 +42,11 @@ public class LinkedList
         }
     }
         
-    public void printProper(Node head)  // Printing data from End of List
+    public void printFromLast(Node head)  // Printing data from End of List
     {
         if( head == null) return;
             
-        printProper(head.next);
+        printFromLast(head.next);
         System.out.print(" " + head.data);
     }
     
@@ -60,8 +60,8 @@ public class LinkedList
         llist.insert("are ");
         llist.insert("you?");
         
-        llist.printList(llist.head);
+        llist.printList();
         System.out.println();
-        llist.printProper(llist.head);
+        llist.printFromLast(llist.head);
     }
 }
