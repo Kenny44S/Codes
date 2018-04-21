@@ -89,7 +89,7 @@ In this Example we have used Binary Search Tree. Any Binary Tree can be used.
                         40      80
                        /  \    /   \F(2)
                  (-2)C/    \ 70     100
-                     30     \A(0)  
+                     30     \G(0)  
               (-3)D /        50
                   20
 
