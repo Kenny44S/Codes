@@ -20,17 +20,14 @@ is 6 < nums[middle] ? <b style="color: green"> YES</b>, that means the target va
 
 Now we call the same function and pass our new parameters, <b>left</b> & <b>right</b>, left's value will remain same and right's will change to the value of 'mid' <br>
 ie:  binarySearch(nums,      6,      0,      7) <br>
-&nbsp;&nbsp;&nbsp;&nbsp;target^   left^  right^
 Now, though the array is same, our Algorithm is SURE that the target value is between nums[0] & nums[7] so it does not waste time in searching the other half of the array. In fact for our Algoritmh the other half of the array does not EXIST AT ALL.
 For him its just int[] nums = { 1, 2, 3, 4, 5, 6, 7, 8,<strike>9,10,11,12,13,14};</strike>
-                         nums[0]^.............nums[7]^
 
 Now again it checks the value at index  (0+7)/2 : 3
 
 IS 6 > nums[3] YES,  now pass 3 as left index & right's index will remain unchanged.
 
-Now nums = <strike>{1,2,3,</strike 4,  5,  6,  7,  8, <strike>9,10,11,12,13,14}</strike>
-                           nums [3]^........nums[7]^
+Now nums = <strike>{1,2,3,</strike> 4,  5,  6,  7,  8, <strike>9,10,11,12,13,14}</strike>
 
 check the value at index (3+7)/2 : 5
 
