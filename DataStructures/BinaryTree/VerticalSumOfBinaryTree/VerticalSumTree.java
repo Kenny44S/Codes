@@ -78,3 +78,30 @@ public class BinarySearchTree
         
     }
 }
+
+/*
+In this Example we have used Binary Search Tree. Any Binary Tree can be used.
+                            
+                            A(0)
+                           .60.
+                    (-1)B /    \E(1)
+                        40      80
+                       /  \    /   \F(2)
+                 (-2)C/    \ 70     100
+                     30     \A(0)  
+              (-3)D /        50
+                  20
+
+We keep note of the horizontal distance starting from root (0). Each left node we visit we keep subtractracting -1 & for 
+each right node we visit we keep  adding +1.
+
+By this every Node coming below Node A will have horizontal distance of 0, each node comming under Node B will have 
+horizontal distance -1 and so on...
+
+Then, by using HashMap we can store addition of previous value at given horizontal distance and keep updating it until we 
+finish traversing the whole tree.
+
+OUTPUT: {0=180, -1=40, -2=30, -3=20, 1=80, 2=100}
+
+
+*/
