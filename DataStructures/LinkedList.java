@@ -1,125 +1,67 @@
-public class LinkedList{
-    
+public class LinkedList
+{
     Node head;
     
-    public void getAvailableFunctions()
+    class Node
     {
-        System.out.println("Functions available are: insertAtStart(int), insertAfter(node, int), insertAtLast(int) ");
-    }
-    
-    public static class Node{
-        
-        int data;
         Node next;
+        String data;
         
-        Node(int data){
+        public Node(String data)
+        {
             this.data = data;
-            this.next = null;
         }
     }
-    
-    public void insertAtStart(int data)
+
+    public void insert(String data)
     {
-        if( this.head == null)
-        {
-            this.head = new Node(data);
-            return;
-        }
-        
-        Node newHead = new Node(data);
-        
-        newHead.next = this.head;
-        this.head = newHead;
-        return;
+        head = insertData(head, data);
     }
-    
-    public void insertAfter(Node previousNode, int data)
-    {
-        if( previousNode.next == null )
-        {
-            previousNode.next = new Node(data);
-            return;
-        }
         
+    public Node insertData(Node head, String data)
+    {
+        if( head == null )
+        {
+            head = new Node(data);
+            return head;
+        }
         Node newNode = new Node(data);
-        
-        newNode.next = previousNode.next;
-        previousNode.next = newNode;
-        return;
+        newNode.next = head;
+        head = newNode;
+            
+        return head;
     }
-    
-    public void insertAtLast(int data)
-    {
-        if( this.head == null )
-        {
-            this.head = new Node(data);
-            return;
-        }
         
-        Node n = this.head;
-        while( n.next != null )
-        {
-            n = n.next;
-        }
-        n.next = new Node(data);
-        return;
-    }
-    
-    public void printList()
+    public void printList()             // Priting data from head of List
     {
-        Node n = this.head;
+        Node n = head;
         while( n != null)
         {
-            System.out.print(n.data);
+            System.out.println(n.data);
             n = n.next;
-            if( n != null) System.out.print(" -> ");
         }
+    }
+        
+    public void printProper(Node head)  // Printing data from End of List
+    {
+        if( head == null) return;
+            
+        printProper(head.next);
+        System.out.print(" " + head.data);
+    }
+    
+    public static void main(String[] args)
+    {
+        LinkedList llist = new LinkedList();
+        
+        llist.insert("Hello");
+        llist.insert("Ken, ");
+        llist.insert("How");
+        llist.insert("are ");
+        llist.insert("you?");
+        
+        llist.printList(llist.head);
         System.out.println();
-    }
-    
-    public int getSize()
-    {   
-        int count = 1;
-        
-        if( this.head == null )
-        return 0;
-        
-        Node n = this.head;
-        while( n.next != null )
-        {
-            count++;
-            n = n.next;
-        }
-        return count;
-    }
-    
-    
-    public static void main(String[] args){
-        
-        LinkedList list = new LinkedList();
-        
-        list.getAvailableFunctions();
-        
-        list.head = new Node(1);
-        Node second = new Node(2);
-        Node third = new Node(3);
-        Node fourth = new Node(4);
-        Node fifth = new Node(5);
-        
-        list.head.next = second;
-        second.next = third;
-        third.next = fourth;
-        fourth.next = fifth;
-        
-        list.printList();
-        list.insertAtStart(100);
-        list.printList();
-        list.insertAfter(second, 200);
-        list.printList();
-        list.insertAtLast(400);
-        list.printList();
-        
-        System.out.print("Size of LinkedList is: " + list.getSize());
+        llist.printProper(llist.head);
     }
 }
-
