@@ -47,13 +47,21 @@ public class LinkedListAddDigit
         System.out.print("Original: "); print();
         System.out.println("Adding " + num);
         
-        startAddition(head, num, 1);
+        int newNodeNeeded;
+        newNodeNeeded = startAddition(head, num);
+        
+        if(newNodeNeeded == 1)
+        {
+            Node newNode = new Node(newNodeNeeded);
+            newNode.next = head;
+            head = newNode;
+        }
 
         System.out.print("Result: "); print();
     }
     
     // Function That Adds..
-    public int startAddition(Node head, int numToAdd, int lengthCounter)
+    public int startAddition(Node head, int numToAdd)
     {
         int carry = 0;
 
@@ -63,32 +71,14 @@ public class LinkedListAddDigit
         // Notice we Keep track of LinkedList's Node by adding 1 while recursing DOWN and subtracting 1 while return back.
         // When lengthCounter == 0, it means we are at the HEAD. Which will help us identify whether we have to create 
         // a new Node at the start.. 
-        int add = startAddition(head.next, numToAdd, lengthCounter + 1);  
-
-        lengthCounter--;
+        int add = startAddition(head.next, numToAdd);  
 
         int temp = (head.data += add);
 
-        if( (temp > 9) && (lengthCounter == 0) )
-        {
-            head.data = (temp-10);
-            Node newNode = new Node(1);
-            newNode.next = this.head;
-            this.head = newNode;
-            return 0;
-        }
-
-        if(temp < 10)  
-        {
-            carry = 0;
-            return carry;
-        }
-        else
-        {
-            head.data = (temp -10);
-            carry = 1;
-            return carry;
-        }
+        carry = (temp / 10);
+        head.data = (temp % 10);
+        
+        return carry;
     }
     
     // Prints LinkedList
@@ -111,11 +101,11 @@ public class LinkedListAddDigit
         
         llist.insert(8);
         llist.insert(9);
-        llist.insert(9);
+        llist.insert(4);
         llist.insert(9);
 
         
-        llist.addNumber(2);
+        llist.addNumber(8);
     }
 }
 

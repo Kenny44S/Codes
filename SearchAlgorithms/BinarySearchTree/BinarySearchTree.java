@@ -1,4 +1,4 @@
-public class BinarySearch {
+public class BinarySearchTree {
     
     public void search(int[]nums, int target)
     {
