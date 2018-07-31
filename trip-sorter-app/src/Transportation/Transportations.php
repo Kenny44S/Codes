@@ -11,7 +11,7 @@ abstract class Transportations{
 
     const DESTINATION_ARRIVED_MESSAGE = "GREAT!! You have arrived at your destination.\n";
 
-    public static function GuidePassenger(array $card = [])
+    public static function GuidePassenger(array $card)
     {
 
     }

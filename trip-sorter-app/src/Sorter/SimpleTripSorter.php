@@ -1,8 +1,7 @@
 <?php
 namespace App\Sorter;
 
-use App\Transportation\AbstractTransportation;
-use App\Transportation\Train;
+
 use App\Transportation\Transportations;
 
 class SimpleTripSorter implements TripSorterInterface {
