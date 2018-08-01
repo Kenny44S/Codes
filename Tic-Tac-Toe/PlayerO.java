@@ -76,8 +76,8 @@ public class PlayerO implements PlayerMove {
 
     private boolean CheckDiagonal(int i)
     {
-        if(i == 2)
+        if(i == 1)
             return false;
-        return ( boardPosition[i][i].equals("O") && boardPosition[1][1].equals("O") && boardPosition[2][2].equals("O") );
+        return ( boardPosition[0][i].equals("O") && boardPosition[1][1].equals("O") && boardPosition[2][2-i].equals("O") );
     }
 }

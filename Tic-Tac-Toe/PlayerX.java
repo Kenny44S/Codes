@@ -77,8 +77,8 @@ public class PlayerX implements PlayerMove{
 
     private boolean CheckDiagonal(int i)
     {
-        if(i == 2)
+        if(i == 1)
             return false;
-        return ( boardPosition[i][i].equals("X") && boardPosition[1][1].equals("X") && boardPosition[2][2].equals("X") );
+        return ( boardPosition[0][i].equals("X") && boardPosition[1][1].equals("X") && boardPosition[2][2-i].equals("X") );
     }
 }
