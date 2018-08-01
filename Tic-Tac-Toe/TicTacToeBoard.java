@@ -94,6 +94,12 @@ public class TicTacToeBoard {
 
     public void ShowAvailableMoves()
     {
+        if(stepCount >= 9)
+        {
+            System.out.println("Uh oh...Seems like no one of you won!");
+            System.exit(1);
+        }
+
         int c = 1;
         System.out.println("Available Moves are: ");
         for(int z = 0; z < size; z++)
@@ -110,6 +116,7 @@ public class TicTacToeBoard {
                     System.out.print(c++ + " ");
             }
         }
+        System.out.print("\n-----------------");
     }
 
     public void GetUserMove()
@@ -146,7 +153,7 @@ public class TicTacToeBoard {
             {
                 System.out.println();
                 System.out.println(" * - . * - . * - . *");
-                System.out.println("Yay!! X is the winner!");
+                System.out.println("YaY!! X is the winner!");
                 System.out.println(" * - . * - . * - . *");
                 System.exit(1);
             }
@@ -154,7 +161,7 @@ public class TicTacToeBoard {
             {
                 System.out.println();
                 System.out.println(" * - . * - . * - . * - . *");
-                System.out.println("Yay!! O is the winner");
+                System.out.println("YaY!! O is the winner");
                 System.out.println(" * - . * - . * - . * - . *");
                 System.exit(1);
             }
