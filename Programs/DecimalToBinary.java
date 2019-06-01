@@ -1,15 +1,16 @@
-public class NumberConvertor {
+public class DecimalToBinary {
 
     public static void main(String[] args)
     {
-        DecimalToBinary(22032);
+        String binary;
+        binary = DecimalToBinary(22032);
+        
+        System.out.println(binary);
     }
 
 
 
-
-
-    public static void DecimalToBinary(int num)
+    public static String DecimalToBinary(int num)
     {
         String binaryRepresentation = "";
 
@@ -17,6 +18,6 @@ public class NumberConvertor {
             binaryRepresentation = (num % 2) + binaryRepresentation;
             num = num/2;
         }
-        System.out.println(binaryRepresentation);
+        return binaryRepresentation;
     }
 }
